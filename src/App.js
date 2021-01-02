@@ -11,7 +11,6 @@ import Toggle from "./components/Toggler";
 
 export default function App() {
     const [theme, themeToggler] = UseDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
                 <GlobalStyles/>
