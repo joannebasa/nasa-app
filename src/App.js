@@ -13,14 +13,14 @@ export default function App() {
     const [theme, themeToggler] = UseDarkMode();
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-                <GlobalStyles/>
-                <BrowserRouter>
-                    <div className="app">
-                        <Toggle theme={theme} toggleTheme={themeToggler} />
-                        <Route component={Home} path="/" exact />
-                        <Route component={NasaPhoto} path="/nasaphoto" />
-                    </div>
-                </BrowserRouter>
+            <GlobalStyles/>
+            <BrowserRouter>
+                <div className="app">
+                    <Toggle theme={theme} toggleTheme={themeToggler} />
+                    <Route component={Home} path="/" exact />
+                    <Route component={NasaPhoto} path="/nasaphoto" />
+                </div>
+            </BrowserRouter>
         </ThemeProvider>
     );
 };
