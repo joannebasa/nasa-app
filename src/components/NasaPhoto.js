@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const apiKey = process.env.REACT_APP_NASA_KEY;
 
 export default function NasaPhoto() {
   const [photoData, setPhotoData] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
     fetchPhoto();
@@ -45,6 +48,7 @@ export default function NasaPhoto() {
       <div>
         <h1>{photoData.title}</h1>
         <p className="date">{photoData.date}</p>
+        <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
         <p className="explanation">{photoData.explanation}</p>
       </div>
     </div>
