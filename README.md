@@ -1,82 +1,33 @@
-This is a simple application that uses NASA's API.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## NASA-App 🌑
+This is a simple application that uses [NASA's Open API] (https://api.nasa.gov/)
 
-## Running the Application
+### About the App 🌏 🚀 👩🏽‍🚀
+I always had this fascination with the planets (and it is fair to say being an astronaut and owning a telescope is quite THE DREAM for most kids) - I only have a telescope, so this is the next best thing I can do :) 
 
-* Run `npm install` to install the dependencies.
+**Frontend** | **Backend** | **Other Methodologies**
+------------ | ------------- | -----------
+HTML5 | Node.js | TDD
+CSS3 + Sass | Express |Github
+React.js |
 
-## Available Scripts
+It is responsive and has accessibility in mind.
 
-In the project directory, you can run:
+### How to get started 💥
 
-### `npm start`
+At it's very basic, it displays NASA's Astronomy Photo of the Day (APOD). More features are in the pipeline for this, including:
+* having light and dark mode
+* being able to view other APOD's from previous dates
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### How to replicate NASA-App in your machine 🌑
+* Pre-requisites: npm, node, Github || optional: telescope
+* Open Terminal, clone Git repository: ```git clone git@github.com:joannebasa/nasa-app.git ```
+* Go into the folder: ```cd nasa-app```
+* Install node dependencies ```npm i```
+* We have lift-off! ```npm start```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more
-information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will
-remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right
-into your project so you have full control over them. All of the commands except `eject` will still work, but they will
-point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you
-shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in
-the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved
-here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Further Plans 🪐
+This app is a work in progress. And future plans with this application include:
+* more API integrations
+* a React Native app version
+* the ability to save favourite APODs, integrate localisation, etc.
