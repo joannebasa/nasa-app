@@ -1,26 +1,71 @@
-import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./components/Home";
+//App.js
+import React, { Component } from 'react'
+import InputDateField from "./components/InputDateField";
 import NasaPhoto from "./components/NasaPhoto";
-import "./App.css";
-import {ThemeProvider} from "styled-components";
-import { GlobalStyles } from "./components/GlobalStyles";
-import { lightTheme, darkTheme } from "./components/Themes";
-import  UseDarkMode from "./components/UseDarkMode";
-import Toggle from "./components/Toggler";
 
-export default function App() {
-    const [theme, themeToggler] = UseDarkMode();
-    return (
-        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-            <GlobalStyles/>
-            <BrowserRouter>
-                <div className="app">
-                    <Toggle theme={theme} toggleTheme={themeToggler} />
-                    <Route component={Home} path="/" exact />
-                    <Route component={NasaPhoto} path="/nasaphoto" />
+const apiKey = process.env.REACT_APP_NASA_KEY;
+class App extends Component {
+    state = {
+        date: new Date(),
+        photo: ''
+    }
+    randomDate = (start, end) => {
+        // return random date between start of Nasa POD and current Date
+        return new Date(
+            start.getTime() + Math.random() * (end.getTime() - start.getTime())
+        )
+    }
+
+    handleClick = (date) => {
+        // generates random date and passes it into our
+        // changeDate function which also updates state and
+        // fetches a photo again
+        let ranDate = this.randomDate(new Date(1995, 0o6 - 1, 16), new Date())
+        this.changeDate(ranDate)
+    }
+    formatDate = (date) => {
+        // converts date to yyyy-mm-dd
+        return date.toISOString().split('T')[0]
+    }
+    changeDate = (date) => {
+        this.setState({ date: date })
+        this.getPhotoByDate(this.formatDate(date))
+    }
+    getPhotoByDate = date => {
+        fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${apiKey}`)
+            .then((response) => {
+                return response.json()
+            })
+            .then((photoData) => {
+                this.setState({ photo: photoData })
+            })
+    }
+    // lifecycle method that render photo before app renders
+    componentDidMount() {
+        fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
+            .then((response) => {
+                return response.json()
+            })
+            .then((json) => {
+                this.setState({ photo: json })
+            })
+    }
+
+    render() {
+
+        return (
+            <div className="container">
+                <div className="card card-body">
+                    <h2>NASA's Astronomy Picture of the Day</h2>
+                    <InputDateField
+                        date={this.state.date}
+                        changeDate={this.changeDate}
+                        handleClick={this.handleClick}
+                    />
+                    <NasaPhoto photo={this.state.photo} />
                 </div>
-            </BrowserRouter>
-        </ThemeProvider>
-    );
-};
+            </div>
+        )
+    }
+}
+export default App
