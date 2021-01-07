@@ -1,71 +1,76 @@
 //App.js
 import React, { Component } from 'react'
-import InputDateField from "./components/InputDateField";
-import NasaPhoto from "./components/NasaPhoto";
+import DateInput from './components/DateInput'
+import Photo from './components/Photo.js'
 
 const apiKey = process.env.REACT_APP_NASA_KEY;
+
 class App extends Component {
-    state = {
-        date: new Date(),
-        photo: ''
-    }
-    randomDate = (start, end) => {
-        // return random date between start of Nasa POD and current Date
-        return new Date(
-            start.getTime() + Math.random() * (end.getTime() - start.getTime())
-        )
-    }
+  state = {
+    date: new Date(),
+    photo: ''
+  }
+  randomDate = (start, end) => {
+    // return random date between start of Nasa POD and current Date
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime())
+    )
+  }
 
-    handleClick = (date) => {
-        // generates random date and passes it into our
-        // changeDate function which also updates state and
-        // fetches a photo again
-        let ranDate = this.randomDate(new Date(1995, 0o6 - 1, 16), new Date())
-        this.changeDate(ranDate)
-    }
-    formatDate = (date) => {
-        // converts date to yyyy-mm-dd
-        return date.toISOString().split('T')[0]
-    }
-    changeDate = (date) => {
-        this.setState({ date: date })
-        this.getPhotoByDate(this.formatDate(date))
-    }
-    getPhotoByDate = date => {
-        fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${apiKey}`)
-            .then((response) => {
-                return response.json()
-            })
-            .then((photoData) => {
-                this.setState({ photo: photoData })
-            })
-    }
-    // lifecycle method that render photo before app renders
-    componentDidMount() {
-        fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
-            .then((response) => {
-                return response.json()
-            })
-            .then((json) => {
-                this.setState({ photo: json })
-            })
-    }
+  handleClick = (date) => {
+    // generates random date and passes it into our
+    // changeDate function which also updates state and
+    // fetches a photo again
+    let ranDate = this.randomDate(new Date(1995, 0o6 - 1, 16), new Date())
+    this.changeDate(ranDate)
+  }
+  formatDate = (date) => {
+    // converts date to yyyy-mm-dd
+    return Date.toISOString().split('T')[0]
+  }
+  changeDate = (date) => {
+    this.setState({ date: date })
+    this.getPhotoByDate(this.formatDate(date))
+  }
+  getPhotoByDate = date => {
+    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${apiKey}`)
+      .then((response) => {
+        return response.json()
+      })
+      .then((photoData) => {
+        this.setState({ photo: photoData })
+      })
+  }
+  // lifecycle method that render photo before app renders
+  componentDidMount() {
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
+      .then((response) => {
+        return response.json()
+      })
+      .then((json) => {
+        this.setState({ photo: json })
+      })
+  }
 
-    render() {
-
-        return (
-            <div className="container">
-                <div className="card card-body">
-                    <h2>NASA's Astronomy Picture of the Day</h2>
-                    <InputDateField
-                        date={this.state.date}
-                        changeDate={this.changeDate}
-                        handleClick={this.handleClick}
-                    />
-                    <NasaPhoto photo={this.state.photo} />
-                </div>
-            </div>
-        )
+  render() {
+    // Style for header
+    const headerStyle = {
+      textShadow: '1px 2px #282794',
+      textAlign: 'center'
     }
+    return (
+      <div className="container">
+        <div className="card card-body">
+          <h2 style={headerStyle} >NASA's Astronomy Picture of the Day</h2>
+          <DateInput
+            date={this.state.date}
+            changeDate={this.changeDate}
+            handleClick={this.handleClick}
+          />
+          <Photo photo={this.state.photo} />
+        </div>
+      </div>
+    )
+  }
 }
 export default App
