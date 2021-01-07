@@ -11,9 +11,6 @@ const buttonStyle = {
 }
 const InputDateField = (props) => (
     <div className="text-center">
-        <p>
-            <em>//needs a header</em>
-        </p>
         <DatePicker
             className="form-control"
             selected={props.date}
