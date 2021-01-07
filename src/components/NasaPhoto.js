@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const NasaPhoto = (props) => {
 
   const explanationStyles = {
@@ -12,8 +13,6 @@ const NasaPhoto = (props) => {
     textAlign: 'center'
   }
 
-  //function to check to see if nasa api returns video or image
-  // and render correct html accordingly
   function renderContentType() {
     if (props.photo.media_type === 'image') {
       return (
@@ -40,8 +39,9 @@ const NasaPhoto = (props) => {
   }
   return (
       <div className="card card-body bg-light">
+        <NavBar />
         <h4 style={titleStyles}>{props.photo.title}</h4>
-
+        {renderContentType()}
         {renderContentType()}
         <p style={explanationStyles}>{props.photo.explanation}</p>
       </div>
