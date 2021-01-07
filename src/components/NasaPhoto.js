@@ -1,53 +1,48 @@
-import React, { useState, useEffect } from "react";
-import NavBar from "./NavBar";
+import React from 'react';
 
-const apiKey = process.env.REACT_APP_NASA_KEY;
+const NasaPhoto = (props) => {
 
-export default function NasaPhoto() {
-  const [photoData, setPhotoData] = useState(null);
+  const explanationStyles = {
+    fontWeight: 'bold',
+    textShadow: 'navy 1px 1px'
+  }
 
-  useEffect(() => {
-    fetchPhoto();
+  const titleStyles = {
+    textShadow: '1px 1px darkred',
+    textAlign: 'center'
+  }
 
-    async function fetchPhoto() {
-      const res = await fetch(
-        `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
-      );
-      const data = await res.json();
-      setPhotoData(data);
-      console.log(data);
+  function renderContentType() {
+    if (props.photo.media_type === 'image') {
+      return (
+          <img
+              style={{ marginBottom: '20px' }}
+              className="img-fluid rounded"
+              src={props.photo.url}
+              alt={props.photo.title}
+          />
+      )
+    } else if (props.photo.media_type === 'video') {
+      return (
+          <iframe
+              style={{ marginBottom: '20px' }}
+              title="nasa video of the day"
+              className="img-fluid rounded"
+              src={props.photo.url}
+              alt={props.photo.title}
+          ></iframe>
+      )
+    } else {
+      return
     }
-  }, []);
-
-  if (!photoData) return <div />;
-
+  }
   return (
-    <>
-    <NavBar />
-    <div className="nasa-photo">
-      {photoData.media_type === "image" ? (
-        <img
-          src={photoData.url}
-          alt={photoData.title}
-          className="photo"
-        />
-      ) : (
-        <iframe
-          title="space-video"
-          src={photoData.url}
-          frameBorder="0"
-          gesture="media"
-          allow="encrypted-media"
-          allowFullScreen
-          className="photo"
-        />
-      )}
-      <div>
-        <h1>{photoData.title}</h1>
-        <p className="date">{photoData.date}</p>
-        <p className="explanation">{photoData.explanation}</p>
+      <div className="card card-body bg-light">
+        <h4 style={titleStyles}>{props.photo.title}</h4>
+        {renderContentType()}
+        <p style={explanationStyles}>{props.photo.explanation}</p>
       </div>
-    </div>
-    </>
-  );
+  )
 }
+
+export default NasaPhoto;
