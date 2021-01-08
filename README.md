@@ -15,7 +15,7 @@ It is responsive and has accessibility in mind.
 
 ### How to get started 💥
 
-At it's very basic, it displays NASA's Astronomy Photo of the Day (APOD). More features are in the pipeline for this, including:
+At its very basic, it displays NASA's Astronomy Photo of the Day (APOD). More features are in the pipeline for this, including:
 * having light and dark mode
 * being able to view other APOD's from previous dates
 
