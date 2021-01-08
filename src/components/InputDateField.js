@@ -2,6 +2,7 @@ import React from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
+
 const buttonPosition = {
   display: 'block',
   marginTop: '1.5rem',
@@ -10,13 +11,14 @@ const buttonPosition = {
 const buttonStyle = {
   backgroundColor: 'grey'
 }
-const DateInput = (props) => (
+const InputDateField = (props) => (
   <div className="text-center">
     <p>
       <em>Pick a Date</em>
     </p>
     <DatePicker
       className="form-control"
+      format={props.formatDate}
       selected={props.date}
       onChange={props.changeDate}
     />
@@ -31,4 +33,4 @@ const DateInput = (props) => (
     </div>
   </div>
 )
-export default DateInput
+export default InputDateField

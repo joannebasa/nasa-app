@@ -1,6 +1,6 @@
 //App.js
 import React, { Component } from 'react'
-import DateInput from './components/DateInput'
+import InputDateField from './components/InputDateField'
 import Photo from './components/Photo.js'
 
 const apiKey = process.env.REACT_APP_NASA_KEY;
@@ -25,7 +25,7 @@ class App extends Component {
     this.changeDate(ranDate)
   }
   formatDate = (date) => {
-    // converts date to yyyy-mm-dd
+    // needs fixing
     return Date.toISOString().split('T')[0]
   }
   changeDate = (date) => {
@@ -62,7 +62,7 @@ class App extends Component {
       <div className="container">
         <div className="card card-body">
           <h2 style={headerStyle} >NASA's Astronomy Picture of the Day</h2>
-          <DateInput
+          <InputDateField
             date={this.state.date}
             changeDate={this.changeDate}
             handleClick={this.handleClick}
