@@ -18,6 +18,8 @@ It is responsive and has accessibility in mind.
 At its very basic, it displays NASA's Astronomy Photo of the Day (APOD). More features are in the pipeline for this, including:
 * having light and dark mode
 * being able to view other APOD's from previous dates
+* be able to see a random APOD on-demand
+* and many more!
 
 ### How to replicate NASA-App in your machine 🌑
 * Pre-requisites: npm, node, Github || optional: telescope
