@@ -1,20 +1,34 @@
-## Nasa APOD Picture of the Day App
-A new project to fetch and display data taken from Nasa's photo of the day API. Initial goal is to call the Nasa Api and render the photo of the day, on page render, allow the user to pick any individual photo by date, and implement a responsive UI with CSS styling and positioning - and use React as a client side framework - handle edge case of image being a photo or video in which case different html must be rendered dynamically. Completed Stretch goal which was to allow user to pick a random photo and display that. Next idea is to add the ability to select and add favorite photos.
+## NASA-App 🌑
+This is a simple application that uses [NASA's Open API] (https://api.nasa.gov/)
 
-Now hosted on Gh-Pages 
-[https://www.prowebdev.services/React-Nasa-API/]
+### About the App 🌏 🚀 👩🏽‍🚀
+I always had this fascination with the planets (and it is fair to say being an astronaut and owning a telescope is quite THE DREAM for most kids) - I only have a telescope, so this is the next best thing I can do :) 
 
-or
+**Frontend** | **Backend** | **Other Methodologies**
+------------ | ------------- | -----------
+HTML5 | Node.js | TDD
+CSS3 + Sass | Express |Github
+React.js |
 
-## Clone project
-- npm install package.json
-- npm start to view in at localhost:3000
+It is responsive and has accessibility in mind.
 
-## API Docs and dependencies
-Nasa APOD API - [https://api.nasa.gov/]
+### How to get started 💥
 
-React - [https://reactjs.org/]
+At its very basic, it displays NASA's Astronomy Photo of the Day (APOD). More features are in the pipeline for this, including:
+* having light and dark mode
+* being able to view other APOD's from previous dates
+* be able to see a random APOD on-demand
+* and many more!
 
-React Date Picker - [https://www.npmjs.com/package/react-datepicker]
+### How to replicate NASA-App in your machine 🌑
+* Pre-requisites: npm, node, Github || optional: telescope
+* Open Terminal, clone Git repository: ```git clone git@github.com:joannebasa/nasa-app.git ```
+* Go into the folder: ```cd nasa-app```
+* Install node dependencies ```npm i```
+* We have lift-off! ```npm start```
 
-Gh-pages - [https://www.npmjs.com/package/gh-pages]
+### Further Plans 🪐
+This app is a work in progress. And future plans with this application include:
+* more API integrations
+* a React Native app version
+* the ability to save favourite APODs, integrate localisation, etc.
