@@ -82,11 +82,11 @@ body {
 
 .home-link {
   font-size: 40px;
-  background: #f59494;
+  background: #e06a0a;
   display: inline-block;
   padding: 40px 80px;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 80%;
   text-decoration: none;
   transition: 0.3s ease all;
   text-transform: uppercase;
@@ -94,5 +94,5 @@ body {
 
 .home-link:hover {
   border-radius: 5px;
-  background: #e77171;
+  background: #e90404;
 }
